@@ -17,7 +17,7 @@ st.write('[Go to the data on french cities](https://www.data.gouv.fr/fr/datasets
 
 st.write('The Great War (also called The War To End All Wars or more commonly The First World War) is a bloody and traumatizing conflict that shook the world in the early 20th century. The horror of the soldiers had to endure would break even the most strongest of minds.')
 
-st.write(The Great War ('On this website I diplay some information that might interest you as I ve display the information in a way that helps you to put what you might have learned on this conflict into perspective. The graphs that you will see do not match perfectly the reality as the data used is only an small sample (I could not get my hand on more data :/ ).')
+st.write('On this website I diplay some information that might interest you as I ve display the information in a way that helps you to put what you might have learned on this conflict into perspective. The graphs that you will see do not match perfectly the reality as the data used is only an small sample (I could not get my hand on more data :/ ).')
 
 st.write('However the graphs do paint a portrait of WWI casualties which might be interresting to keep in mind.')
 
