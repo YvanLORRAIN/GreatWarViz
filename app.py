@@ -98,7 +98,7 @@ df_for_map['Année de décès/Date of death'].astype(str)
 # Map of deaths in France
 fig = px.scatter_geo(data_frame= df_for_map,lat=df_for_map.latitude, lon=df_for_map.longitude,color=df_for_map["Année de décès/Date of death"],scope='europe',title='Map of the french soldiers who died during the Great War in France',height=500,width=800)
 st.plotly_chart(fig, use_container_width=True)
-st.write('This map show where soldiers died between 1914 and 1918, one can clearly see the consentration of casualties neer the franco-german border as well as a change in the distribution of deaths. This is explained by the the fact that although the frontline remained static there was a great deal of troop movement to prepare assaults on ennemy lines or to repel the ennemy.')
+st.write('This map show where soldiers died between 1914 and 1918, one can clearly see the concentration of casualties neer the franco-german border as well as a change in the distribution of deaths. This is explained by the the fact that although the frontline remained static there was a great deal of troop movement to prepare assaults on ennemy lines or to repel the ennemy.')
 
 st.write('One can even see an aggregation of points around 1916 south-west of Luxembourg which corresponds to the Battle of Verdun which lasted 9 months and 27 days and made more then 700 000 casualties including PoWs and wounded')
 
@@ -116,7 +116,7 @@ st.write('This plot complements nicely what I just said earlier, one can observe
 
 
 
-
+st.write('The following has been created using a subsample of the data set of 1000 lines')
 fig2, ax2= plt.subplots(figsize=(7,20))
 # Distribution of deaths accross ranks on the first 1000 soldiers 
 CasualtiesPerRank = sns.histplot(data=df_poilus[:1000],y='Grade',ax=ax2)
@@ -128,7 +128,7 @@ st.write('Finally I would like to remind you that the people who fought this con
 st.title("A word from the author")
 st.write('I am a huge fan of history so I wanted to share this passion with you. And I feel like this conflict is not given the credit it is due.')
 
-st.write('As chistmas is slowly approching when I write this, I leave you a song from Sabaton on what I consider to be the best moment of the war (appart from its end): the christmas truce')
+st.write('As christmas is slowly approching when I write this, I leave you a song from Sabaton on what I consider to be the best moment of the war (appart from its end): the christmas truce')
 st.write('[Here is the song](https://www.youtube.com/watch?v=goXDAFtkJLw)')
 
 
