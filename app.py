@@ -17,12 +17,15 @@ st.write('[Go to the data on french cities](https://www.data.gouv.fr/fr/datasets
 
 st.write('The Great War (also called The War To End All Wars or more commonly The First World War) is a bloody and traumatizing conflict that shook the world in the early 20th century. The horror of the soldiers had to endure would break even the most strongest of minds.')
 
-st.write('On this website I diplay some information that might interest you as I ve display the information in a way that helps you to put what you might have learned on this conflict into perspective. The graphs that you will see do not match perfectly the reality as the data used is only an small sample (I could not get my hand on more data :/ ).')
+st.write('''This website is dedicated to presenting the Great war in a new light. To achieve this you will be able to: 
+- see the western front through thanks to the place where some soldiers dies
+- see the impact of the battle of Verdun on the death toll
+- See the difference in the amount of rank''')
 
 st.write('However the graphs do paint a portrait of WWI casualties which might be interresting to keep in mind.')
 
 
-st.title("Enjoy the graphs :)")
+st.title("The great war seen with graphs")
 
 df_poilus_raw = pd.read_csv("data/tracesdesoldats-lespoilus.csv",encoding='utf8')
 df_city = pd.read_csv('data/communes-departement-region.csv')
@@ -96,7 +99,7 @@ df_for_map['Année de décès/Date of death'].astype(str)
 #--------------------------------------------------------------------------------------------
 
 # Map of deaths in France
-fig = px.scatter_geo(data_frame= df_for_map,lat=df_for_map.latitude, lon=df_for_map.longitude,color=df_for_map["Année de décès/Date of death"],scope='europe',title='Map of the french soldiers who died during the Great War in France',height=500,width=800)
+fig = px.scatter_geo(data_frame= df_for_map,lat=df_for_map.latitude, lon=df_for_map.longitude,color=df_for_map["Année de décès/Date of death"],scope='europe',title='1 point, 1 soul...',height=500,width=800,hover_name='nom')
 st.plotly_chart(fig, use_container_width=True)
 st.write('This map show where soldiers died between 1914 and 1918, one can clearly see the concentration of casualties neer the franco-german border as well as a change in the distribution of deaths. This is explained by the the fact that although the frontline remained static there was a great deal of troop movement to prepare assaults on ennemy lines or to repel the ennemy.')
 
@@ -107,12 +110,13 @@ st.write('One can even see an aggregation of points around 1916 south-west of Lu
 fig1, ax1= plt.subplots()
 # Lineplot of the deaths per year
 X = df_for_map["Année de décès/Date of death"].unique()
+X = X.astype(str)
 Y = df_for_map["Année de décès/Date of death"].value_counts()
 
 DeathPerYear = sns.lineplot(y=Y, x=X,ax=ax1)
-DeathPerYear.set(title='Evolution of the bumber of deaths per year')
+DeathPerYear.set(title='1916, the battle year')
 st.pyplot(fig1)
-st.write('This plot complements nicely what I just said earlier, one can observe a peak of casualties in 1916 which is not surprising at all considering the battle of Verdun is the bloodiest battle of the conflict.')
+st.write('This plot complements nicely the previous information, one can observe a peak of casualties in 1916 which is not sur$$prising at all considering the battle of Verdun is the bloodiest battle of the conflict.')
 
 
 
@@ -120,13 +124,13 @@ st.write('The following has been created using a subsample of the data set of 10
 fig2, ax2= plt.subplots(figsize=(7,20))
 # Distribution of deaths accross ranks on the first 1000 soldiers 
 CasualtiesPerRank = sns.histplot(data=df_poilus[:1000],y='Grade',ax=ax2)
-CasualtiesPerRank.set(title='Distribution of the casualties per rank')
+CasualtiesPerRank.set(title='Lower rank, higher risks?')
 st.pyplot(fig2)
-st.write('Finally I would like to remind you that the people who fought this conflict are beyond brave as most of the deads were low ranking soldiers conscripted and whos jobs were: farmers, teachers, students, fatory workers... YOU might have been one of them...')
+st.write('Finally, it is always a good thing to remind people that the men who fought in this conflict were beyond brave as most of the deads were low ranking soldiers. Those had been conscripted and they were not soldiers but: farmers, teachers, students, fatory workers... In short, you might have been one of them...')
 
 
 st.title("A word from the author")
-st.write('I am a huge fan of history so I wanted to share this passion with you. And I feel like this conflict is not given the credit it is due.')
+st.write('I am a huge fan of history so I wanted to share this passion with you. And I feel like this conflict is not given the credit it is due so I decided to show you this conflict in an way you might not be used to: graphs.')
 
 st.write('As christmas is slowly approching when I write this, I leave you a song from Sabaton on what I consider to be the best moment of the war (appart from its end): the christmas truce')
 st.write('[Here is the song](https://www.youtube.com/watch?v=goXDAFtkJLw)')
