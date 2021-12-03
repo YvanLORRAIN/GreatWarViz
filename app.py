@@ -104,20 +104,20 @@ method = []
 
 for d in df_test['Cause of death']:
     if (' en mer' in d):
-      death.append('Died at sea')
+      method.append('Died at sea')
     if ('avion' in d):
-      death.append('Died flying airplane')
+      method.append('Died flying airplane')
     if ('blessure' in d):
-      death.append('Died of injuries')
+      method.append('Died of injuries')
     if ('ennemi' in d):
-      death.append('Died to the ennemi')
+      method.append('Died to the ennemi')
     if ('nan' in d):
-      death.append('Unknown causes')
+      method.append('Unknown causes')
     if ('maladie' in d):
-      death.append('Died of illness')
+      method.append('Died of illness')
 
 df_death = pd.DataFrame()
-df_death['Cause of death'] = death
+df_death['Cause of death'] = method
 
 #--------------------------------------------------------------------------------------------
 #					That's the real deal
