@@ -89,9 +89,8 @@ df_poilus['Lieu de décès'] = low2
 df_death_city_france = df_city[df_city['nom_commune_postal'].isin(df_poilus['Lieu de décès'])]
 
 df_for_map = df_poilus.set_index('Lieu de décès').join(df_city.set_index('nom_commune_postal'))
-df_for_map['Année de décès/Date of death'] = df_for_map['Année de décès/Date of death'].astype(int)
-df_for_map = df_for_map[(df_for_map['Année de décès/Date of death'] >= 1914.0) & (df_for_map['Année de décès/Date of death'] <= 1918.0)]
 
+df_for_map = df_for_map[(df_for_map['Année de décès/Date of death'] >= 1914.0) & (df_for_map['Année de décès/Date of death'] <= 1918.0)]
 
 
 method = df_poilus['Cause du décès'].unique()
@@ -134,7 +133,6 @@ st.write('One can even see an aggregation of points around 1916 south-west of Lu
 fig1, ax1= plt.subplots()
 # Lineplot of the deaths per year
 X = df_for_map["Année de décès/Date of death"].unique()
-X = X.astype(str)
 Y = df_for_map["Année de décès/Date of death"].value_counts()
 
 DeathPerYear = sns.lineplot(y=Y, x=X,ax=ax1)
