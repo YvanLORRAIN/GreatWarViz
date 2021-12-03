@@ -135,7 +135,7 @@ fig1, ax1= plt.subplots()
 X = df_for_map["Année de décès/Date of death"].unique()
 Y = df_for_map["Année de décès/Date of death"].value_counts()
 
-DeathPerYear = sns.lineplot(y=Y, x=X,ax=ax1)
+DeathPerYear = sns.lineplot(y=Y, x=X,ax=ax1,color = 'red')
 DeathPerYear.set(title='1916, the battle year')
 st.pyplot(fig1)
 st.write('This plot complements nicely the previous information, one can observe a peak of casualties in 1916 which is not surprising at all considering the battle of Verdun is the bloodiest battle of the conflict.')
@@ -145,7 +145,7 @@ st.write('This plot complements nicely the previous information, one can observe
 st.write('The following has been created using a subsample of the data set for lisibility concerns')
 fig2, ax2= plt.subplots(figsize=(6,10))
 # Distribution of deaths accross ranks on the first 1000 soldiers 
-Casualties = sns.histplot(data=df_death,y='Cause of death',ax=ax2)
+Casualties = sns.histplot(data=df_death,y='Cause of death',color = 'red',ax=ax2)
 Casualties.set(title='Death has many shapes')
 st.pyplot(fig2)
 st.write('Finally, it is always a good thing to remind people that the men who fought in this conflict were beyond brave as they had to live every day surounded by death. Soldier or not none of them had been prepared for the kind of horrors that awaited them: the smell of rotting corpses, the diseases, the thunderous noise of cannons and shells, the first tanks, ...')
