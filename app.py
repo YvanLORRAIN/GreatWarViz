@@ -142,7 +142,7 @@ st.write('This plot complements nicely the previous information, one can observe
 
 
 
-st.write('The following has been created using a subsample of the data set of 1000 lines')
+st.write('The following has been created using a subsample of the data set for lisibility concerns')
 fig2, ax2= plt.subplots(figsize=(6,10))
 # Distribution of deaths accross ranks on the first 1000 soldiers 
 Casualties = sns.histplot(data=df_death,y='Cause of death',ax=ax2)
