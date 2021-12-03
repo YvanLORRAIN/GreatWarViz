@@ -61,7 +61,7 @@ df_poilus["Date de naisssance"] = SplitColumn(df_poilus.naissance," ")
 #--------------------------------------------------------------------------------------------
 
 date_of_death = []
-df_poilus["Date de décès"] = df_poilus["Date de décès"].astype(str)
+#df_poilus["Date de décès"] = df_poilus["Date de décès"].astype(str)
 for line in df_poilus["Date de décès"]:
     splited_data = line.split("-")
     if len(splited_data) == 3:
@@ -76,7 +76,7 @@ low2 = []
 for i in range(len(df_city['nom_commune_postal'])):
   low.append(df_city['nom_commune_postal'].iloc[i].lower())
 
-df_poilus['Lieu de décès'] = df_poilus['Lieu de décès'].astype(int)
+df_poilus['Lieu de décès'] = df_poilus['Lieu de décès'].astype(str)
 for i in range(len(df_poilus['Lieu de décès'])):
   low2.append(df_poilus['Lieu de décès'].iloc[i].lower())
 
