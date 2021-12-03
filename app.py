@@ -61,7 +61,7 @@ df_poilus["Date de naisssance"] = SplitColumn(df_poilus.naissance," ")
 #--------------------------------------------------------------------------------------------
 
 date_of_death = []
-#df_poilus["Date de décès"] = df_poilus["Date de décès"].astype(str)
+df_poilus["Date de décès"] = df_poilus["Date de décès"].astype(str)
 for line in df_poilus["Date de décès"]:
     splited_data = line.split("-")
     if len(splited_data) == 3:
