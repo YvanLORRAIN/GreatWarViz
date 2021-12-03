@@ -94,6 +94,31 @@ df_for_map = df_for_map[(df_for_map['Année de décès/Date of death'] >= 1914.0
 df_for_map['Année de décès/Date of death'].astype(str)
 
 
+
+method = df_poilus['Cause du décès'].unique()
+df_test = pd.DataFrame()
+
+df_test['Cause of death'] = method
+df_test['Cause of death'] = df_test['Cause of death'].astype(str)
+method = []
+
+for d in df_test['Cause of death']:
+    if (' en mer' in d):
+      death.append('Died at sea')
+    if ('avion' in d):
+      death.append('Died flying airplane')
+    if ('blessure' in d):
+      death.append('Died of injuries')
+    if ('ennemi' in d):
+      death.append('Died to the ennemi')
+    if ('nan' in d):
+      death.append('Unknown causes')
+    if ('maladie' in d):
+      death.append('Died of illness')
+
+df_death = pd.DataFrame()
+df_death['Cause of death'] = death
+
 #--------------------------------------------------------------------------------------------
 #					That's the real deal
 #--------------------------------------------------------------------------------------------
@@ -123,10 +148,10 @@ st.write('This plot complements nicely the previous information, one can observe
 st.write('The following has been created using a subsample of the data set of 1000 lines')
 fig2, ax2= plt.subplots(figsize=(7,20))
 # Distribution of deaths accross ranks on the first 1000 soldiers 
-CasualtiesPerRank = sns.histplot(data=df_poilus[:1000],y='Grade',ax=ax2)
-CasualtiesPerRank.set(title='Lower rank, higher risks?')
+Casualties = sns.histplot(data=df_death,y='Cause of death',ax=ax2)
+Casualties.set(title='Death has many shapes')
 st.pyplot(fig2)
-st.write('Finally, it is always a good thing to remind people that the men who fought in this conflict were beyond brave as most of the deads were low ranking soldiers. Those had been conscripted and they were not soldiers but: farmers, teachers, students, fatory workers... In short, you might have been one of them...')
+st.write('Finally, it is always a good thing to remind people that the men who fought in this conflict were beyond brave as they had to live every day surounded by death. Soldier or not none of them had been prepared for the kind of horrors that awaited them: the smell of rotting corpses, the diseases, the thunderous noise of cannons and shells, the first tanks, ...')
 
 
 st.title("A word from the author")
