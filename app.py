@@ -76,7 +76,7 @@ low2 = []
 for i in range(len(df_city['nom_commune_postal'])):
   low.append(df_city['nom_commune_postal'].iloc[i].lower())
 
-#df_poilus['Lieu de décès'] = df_poilus['Lieu de décès'].astype(str)
+df_poilus['Lieu de décès'] = df_poilus['Lieu de décès'].astype(int)
 for i in range(len(df_poilus['Lieu de décès'])):
   low2.append(df_poilus['Lieu de décès'].iloc[i].lower())
 
