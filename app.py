@@ -89,7 +89,7 @@ df_poilus['Lieu de décès'] = low2
 df_death_city_france = df_city[df_city['nom_commune_postal'].isin(df_poilus['Lieu de décès'])]
 
 df_for_map = df_poilus.set_index('Lieu de décès').join(df_city.set_index('nom_commune_postal'))
-
+df_for_map['Année de décès/Date of death'].astype(str)
 df_for_map = df_for_map[(df_for_map['Année de décès/Date of death'] >= 1914.0) & (df_for_map['Année de décès/Date of death'] <= 1918.0)]
 
 
