@@ -138,7 +138,7 @@ Y = df_for_map["Année de décès/Date of death"].value_counts()
 DeathPerYear = sns.lineplot(y=Y, x=X,ax=ax1)
 DeathPerYear.set(title='1916, the battle year')
 st.pyplot(fig1)
-st.write('This plot complements nicely the previous information, one can observe a peak of casualties in 1916 which is not sur$$prising at all considering the battle of Verdun is the bloodiest battle of the conflict.')
+st.write('This plot complements nicely the previous information, one can observe a peak of casualties in 1916 which is not surprising at all considering the battle of Verdun is the bloodiest battle of the conflict.')
 
 
 
